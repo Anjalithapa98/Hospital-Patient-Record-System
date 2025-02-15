@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HospitalPatientSystem.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Doctors and their Patients:</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Patients</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.Name</td>
+                <td>
+                    @if (doctor.Patients != null && doctor.Patients.Any())
+                    {
+                        foreach (var patient in doctor.Patients)
+                        {
+                            <div>@patient.Name</div>
+                        }
+                    }
+                    else
+                    {
+                        <div>No patients assigned</div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@model HospitalPatientSystem.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()  <!-- Cross-Site Request Forgery (CSRF) Protection -->
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="Email" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" asp-for="Password" class="form-control" id="Password" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    <div>
+        @if (ViewData.ModelState.ErrorCount > 0)
+        {
+            <div class="text-danger">
+                Invalid credentials. Please try again.
+            </div>
+        }
+    </div>
+</form>
+
+<p>Don't have an account? <a href="#">Sign up</a></p>

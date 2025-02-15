@@ -1,0 +1,15 @@
+﻿@model HospitalPatientSystem.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<h1>@Model.Name</h1>
+<p><strong>Specialization:</strong> @Model.Specialization</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Specialty:</strong> @Model.Specialty</p>
+<p><strong>Department:</strong> @Model.Department</p>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a> |
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a> |
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

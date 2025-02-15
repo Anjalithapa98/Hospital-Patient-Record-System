@@ -1,0 +1,18 @@
+﻿@* Views/Account/DoctorDashboard.cshtml *@
+@model IEnumerable<HospitalPatientSystem.Models.Patient>
+
+@{
+    ViewData["Title"] = "Doctor Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Welcome to your Doctor's Dashboard!</p>
+
+<h4>Your Patients:</h4>
+<ul>
+    @foreach (var patient in Model)
+    {
+        <li>@patient.Name (Age: @patient.Age)</li>
+    }
+</ul>
